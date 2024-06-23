@@ -1,0 +1,33 @@
+name: Sync cdnfolder from private repo phpcodes
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs every day at midnight
+  workflow_dispatch: # Allows manual trigger from the Actions tab
+
+jobs:
+  sync-folder:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout this repository
+        uses: actions/checkout@v2
+
+      - name: Checkout private repository
+        uses: actions/checkout@v2
+        with:
+          repository: imranmajeed473/phpcodes
+          token: ${{ secrets.GH_PAT }}
+          path: private-repo # Specifies the directory to checkout the private repo
+
+      - name: Copy cdnfolder
+        run: |
+          rsync -av --progress private-repo/cdnfolder/ cdnfolder/ --exclude .git --delete
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add cdnfolder/
+          git commit -m "Sync cdnfolder from private repository" || echo "No changes to commit"
+          git push
