@@ -1,4 +1,4 @@
-name: Sync cdnfolder from private repo phpcodes
+name: Sync cdnfolder from private repo
 
 on:
   schedule:
@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: Checkout this repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Checkout private repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: imranmajeed473/phpcodes
           token: ${{ secrets.GH_PAT }}
