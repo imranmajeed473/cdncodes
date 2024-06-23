@@ -14,23 +14,26 @@ jobs:
         uses: actions/checkout@v3
         with:
           node-version: '20'
+          token: ${{ secrets.GH_PAT }}
 
       - name: Checkout private repository
         uses: actions/checkout@v3
         with:
           repository: imranmajeed473/phpcodes
+          node-version: '20'
           token: ${{ secrets.GH_PAT }}
           path: private-repo # Specifies the directory to checkout the private repo
-          node-version: '20'
 
       - name: Copy cdnfolder
         run: |
           rsync -av --progress private-repo/cdnfolder/ cdnfolder/ --exclude .git --delete
 
       - name: Commit and push changes
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add cdnfolder/
           git commit -m "Sync cdnfolder from private repository" || echo "No changes to commit"
-          git push
+          git push https://x-access-token:${GH_PAT}@github.com/imranmajeed473/cdncodes.git HEAD:main
