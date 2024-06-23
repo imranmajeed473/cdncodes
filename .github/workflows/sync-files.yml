@@ -15,6 +15,7 @@ jobs:
         with:
           node-version: '20'
           token: ${{ secrets.GH_PAT }}
+          path: public-repo
 
       - name: Checkout private repository
         uses: actions/checkout@v3
@@ -26,7 +27,7 @@ jobs:
 
       - name: Copy cdnfolder
         run: |
-          rsync -av --progress private-repo/cdnfolder/ / --exclude .git --delete
+          rsync -av --progress --exclude='.git' --include='*/' --include='*.css' --include='*.js' --exclude='*' private-repo/cdnfolder/ public-repo/
 
       - name: Commit and push changes
         env:
