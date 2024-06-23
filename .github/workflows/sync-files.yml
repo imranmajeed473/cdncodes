@@ -26,7 +26,7 @@ jobs:
 
       - name: Copy cdnfolder
         run: |
-          rsync -av --progress private-repo/cdnfolder/ cdnfolder/ --exclude .git --delete
+          rsync -av --progress private-repo/cdnfolder/ cdnfolder/ --exclude .git --include='chromeinject.css' --include='chromeinject.js' --delete
 
       - name: Commit and push changes
         env:
