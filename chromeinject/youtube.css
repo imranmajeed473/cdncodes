@@ -1,0 +1,135 @@
+div#items div#contents {
+    overflow-y: scroll !important;
+    max-height: calc(100vh - 50px);
+    padding-right: 4px;
+    overscroll-behavior: contain;
+}
+ytd-action-companion-ad-renderer.style-scope.ytd-companion-slot-renderer {
+    display: none !important;
+}
+#masthead-container.ytd-app {
+    position: static !important;
+    z-index: 99;
+}
+
+#page-manager.ytd-app {
+    margin-top: 0 !important;
+}
+div#related {
+    position: fixed;
+    top: 10px;
+    /* z-index: 99; */
+}
+
+div#secondary {
+    padding-top: 0 !important;
+    margin-top: -40px;
+    /* z-index: 99; */
+}
+
+.metadata.ytd-compact-video-renderer {
+    padding-right: 1px;
+}
+
+div#related {
+    max-width: 484px;
+}
+
+
+div#secondary div#related div#player-ads {
+    display: none !important;
+}
+div#show-hide-button {
+    bottom: 0px;
+    position: fixed;
+    right: 0;
+}
+
+
+div#secondary-inner {
+    min-height: 90vh;
+}
+
+
+div#primary {
+    padding-top: 0 !important;
+    /* z-index: 999; */
+}
+
+yt-chip-cloud-chip-renderer.style-scope.yt-chip-cloud-renderer {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+}
+
+div#items div#contents ytd-compact-video-renderer {
+    background: aliceblue;
+}
+
+
+div#masthead-container {}
+
+div#masthead-container div#container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+div#masthead-container form#search-form {}
+
+div#masthead-container form#search-form {}
+
+div#masthead-container div#center {
+    max-width: 500px;
+}
+
+div#masthead-container div#center ytd-searchbox#search {
+    margin-left: auto;
+}
+
+div#masthead-container div#end {
+    min-width: auto;
+}
+
+ytd-comments#comments div#contents {
+    max-height: 300px !important;
+    overflow-y: scroll;
+    background: #f4f4e3;
+}
+
+ytd-comments-header-renderer {margin: 10px auto !important;}
+
+ytd-comments-header-renderer div#title {
+    margin-bottom: 0 !important;
+}
+
+ytd-watch-metadata.watch-active-metadata {
+    margin-bottom: 10px !important;
+}
+
+div#full-bleed-container {
+    z-index: 999;
+}
+
+aa {}
+
+html ytd-watch-flexy[full-bleed-player] #full-bleed-container.ytd-watch-flexy {
+    min-height: 630px;
+}
+
+tp-yt-app-drawer#guide {
+    /* z-index: 95; */
+}
+
+div#guide-spacer {
+    opacity: 0 !important;
+    background: transparent;
+    /* display: none; */
+}
+
+div#contentContainer {
+    background: transparent !important;
+}
+
+div#guide-content {
+    /* top: 50px; */
+    /* position: relative; */
+}
